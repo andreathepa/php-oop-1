@@ -1,6 +1,7 @@
 <?php
 
     class Movie {
+        public $art;
         public $title;
         public $genre;
         public $cast;
@@ -10,7 +11,8 @@
 
     
 
-        function __construct($title, $genre, $cast, $release, $country, $platform){
+        function __construct($art, $title, $genre, $cast, $release, $country, $platform){
+            $this->art = $art;
             $this->title = $title;
             $this->genre = $genre;
             $this->cast = $cast;
@@ -29,9 +31,9 @@
             
     }
 
-    $movie_1 = new movie('Robocop', 'action', 'Peter Weller', 1987, 'USA', 'Netflix');
-    $movie_2 = new movie('Zorro', 'action', 'Antonio banderas', 1999, 'ES', 'Amazon');
-    $movie_3 = new movie('The Departed', 'thriller', 'Leonardo Di Caprio', 2005, 'USA', 'Disney')
+    $movie_1 = new movie('<div><img src="./img/robocop.jpg" alt=""></div>','Robocop', 'action', 'Peter Weller', 1987, 'USA', 'Netflix');
+    $movie_2 = new movie('<div><img src="./img/zorro.jpg" alt=""></div>','Zorro', 'action', 'Antonio banderas', 1999, 'ES', 'Amazon');
+    $movie_3 = new movie('<div><img src="./img/departed.jpg" alt=""></div>','The Departed', 'thriller', 'Leonardo Di Caprio', 2005, 'USA', 'Disney')
 
     
 ?>
@@ -51,12 +53,19 @@
         <title>Php OOP</title>
     </head>
     <body>
+        
         <div class="wrapper">
             <div id="app">
+                <header>
+                    <div class="container mt-5 text-center">
+                        <h1>OOP MOVIES</h1>
+                    </div>
+                </header>
                 <div class="container my-5">
                     <div class="row">
-                        <div class="col-12">
-                            <ul class="list-unstyled">
+                        <div class="col-4">
+                            <ul class="list-unstyled rounded border p-2">
+                                <li><?php echo $movie_1->art; ?></li>
                                 <li>Title: <?php echo $movie_1->title; ?></li>
                                 <li class="<?php if ($movie_1->checkGenre()) echo 'action'; ?>">Genre: <?php echo $movie_1->genre; ?></li>
                                 <li>Cast: <?php echo $movie_1->cast; ?></li>
@@ -65,8 +74,9 @@
                                 <li>Platform: <?php echo $movie_1->platform; ?></li>
                             </ul>
                         </div>
-                        <div class="col-12">
-                            <ul class="list-unstyled">
+                        <div class="col-4">
+                            <ul class="list-unstyled rounded border p-2">
+                                <li><?php echo $movie_2->art; ?></li>
                                 <li>Title: <?php echo $movie_2->title; ?></li>
                                 <li class="<?php if ($movie_1->checkGenre()) echo 'action'; ?>">Genre: <?php echo $movie_2->genre; ?></li>
                                 <li>Cast: <?php echo $movie_2->cast; ?></li>
@@ -75,8 +85,9 @@
                                 <li>Platform: <?php echo $movie_2->platform; ?></li>
                             </ul>
                         </div>
-                        <div class="col-12">
-                            <ul class="list-unstyled">
+                        <div class="col-4">
+                            <ul class="list-unstyled rounded border p-2">
+                                <li><?php echo $movie_3->art; ?></li>
                                 <li>Title: <?php echo $movie_3->title; ?></li>
                                 <li class="<?php if ($movie_1->checkGenre()) echo 'thriller'; ?>">Genre: <?php echo $movie_3->genre; ?></li>
                                 <li>Cast: <?php echo $movie_3->cast; ?></li>
